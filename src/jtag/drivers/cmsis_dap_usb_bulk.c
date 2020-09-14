@@ -90,6 +90,11 @@ static int cmsis_dap_usb_open(struct cmsis_dap *dap, uint16_t vids[], uint16_t p
 				break;
 		}
 
+        if (dev_desc.idVendor == 0x21a9 && dev_desc.idProduct == 0x1005) {
+            // skip Saleae Logic Pro 8
+            continue;
+        }
+
 		if (!id_match)
 			continue;
 
